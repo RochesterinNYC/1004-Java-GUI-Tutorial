@@ -11,8 +11,8 @@ This is a tutorial on Java GUIs. Written by James Wen.
 
 - [Terms and Definitions](#terms)
 - [Common Components](#common)
-- [Global Operations](#global)
 - [Inheritance](#inheritance)
+- [Global Operations](#global)
 - [Events](#events)
 - [Other Notes](#other)
 - [More Resources/Documentation](#docs)
@@ -126,12 +126,6 @@ CheckBox (AWT)/JCheckBox (Swing):
 
 ------
 
-<a name="global"></a>
-
-###Global Operations:
-
-------
-
 <a name="inheritance"></a>
 
 ###Inheritance:
@@ -155,6 +149,45 @@ Java Swing:
 For a quick overview on the inheritance hierarchy of the most popular Java Swing GUI components: http://www.comp.nus.edu.sg/~cs3283/ftp/Java/swingConnect/archive/what_is_arch/tool_set/tool_set.html
 
 Java Swing Events will either inherit from java.util.EventObject directly or indirectly from java.awt.AWTEvent and AWT subclasses of java.awt.AWTEvent (like java.awt.event.ComponentEvent)
+
+------
+
+<a name="global"></a>
+
+###Global Operations:
+
+All subclasses that have these classes as superclasses can utilize the following functionalities.
+
+####Component (java.awt.Component):
+
+setSize(int width, int height):
+- Sets the width and height of the Component.
+- Width and height are in pixels.
+- Also available: setSize(Dimension d) and setPreferredSize(Dimension preferredSize)
+- Also has accessor getSize that returns a Dimension object.
+
+setBackground(Color c):
+- Sets the background color for the Component.
+- Also has accessor getBackground that returns a Color object.
+
+setFont(Font f):
+- Sets the font for the Component.
+- Also has accessor getFont that returns a Font object.
+
+####Container (java.awt.Container):
+
+add(Component comp):
+- Adds the specified Component to the Container.
+- Many other overloaded add methods that allow you to add Components to the Container in a certain way or with certain conditions/attributes.
+- Also has various getComponent accessors that return a Component object.
+
+remove(Component comp):
+- Removes the specified Component from the Container.
+
+setLayout(LayoutManager mgr):
+- Sets the layout manager for the Container.
+- Also has accessor getLayout that returns a LayoutManager object.
+
 
 ------
 
