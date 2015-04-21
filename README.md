@@ -278,6 +278,7 @@ For Java GUIs, LayoutManagers allow you to arrange the GUI components of a Conta
         add(new JLabel("W1004: Java GUI Demo"), BorderLayout.PAGE_START);
 
 - Great Reference: https://docs.oracle.com/javase/tutorial/uiswing/layout/visual.html
+
 ------
 
 <a name="events"></a>
