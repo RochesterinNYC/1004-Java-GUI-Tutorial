@@ -74,16 +74,16 @@ This is a tutorial on Java GUIs. Written by James Wen.
 AWT:
 
 - Uses the native Operating System GUI code/functionality and thus programs with Java AWT work and look different on different operating systems
+- Usually looks like a native application for the operating system
 - OS-Specific Display: "the same Java program, when run on a Windows PC, would have the look and feel of a native Windows application and the look and feel of a native Mac application when run on a Mac" (http://www.techopedia.com/definition/3735/abstract-window-toolkit-awt)
-- Heavyweight Components
+- Comprised of heavyweight Components
 
 Swing:
 
 - Portable look and functionality across different operating systems
-- Java Swing and JVM?
-- Lightweight Components
-- Usually has the look of a Java application no matter which operating system run on
+- Usually has the look of a Java application no matter which operating system run on (disregarding themes/skins)
 - Java Swing GUI components have a J as the first letter of the class. (Ex. JButton, JLabel)
+- Comprised of lightweight Components
 
 Verdict:
 
@@ -97,6 +97,9 @@ Depends on the type and purpose of the Java application you intend to build. How
 
 Component (AWT/Swing):
 
+- An object that has a graphical/visual representation that can be displayed to a user and can be interacted with.
+- Ex. Buttons, Checkboxes, Textfields
+- "Abstract superclass of the non-menu-related AWT components"
 
 Container (AWT/Swing):
 
