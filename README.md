@@ -243,11 +243,55 @@ For Java GUIs, LayoutManagers allow you to arrange the GUI components of a Conta
 
 ###Event Listening and Processing:
 
-- All GUI Events have a source (an Object that caused the event) because all Java Events inherit either directly or indirectly from java.util.EventObject which has a getSource method that returns the Source as an Object.
+Inheritance Hierarchy:
 
-Listeners:
+java.awt.AWTEvent inherits from java.util.EventObject inherits from java.lang.Object
 
-- Action vs Event Listeners
+- java.util.EventObject represents an Event. However, the Event concept is not restricted to just GUIs and visual interaction. (Ex. javax.print.event.PrintEvent inherits from java.util.EventObject and is related to the Java Print API).
+- java.awt.AWTEvent is an abstract class that represents all Events that have anything to do with AWT and Java GUIs.
+- Most of the Events that you would be dealing with in writing AWT or Swing Component GUIs would directly inherit from java.awt.AWTEvent (Ex. ActionEvent, ItemEvent, TextEvent, etc.).
+
+Most Common Java GUI Events:
+
+- Whenever a user clicks or interacts with a GUI Component, it'll usually fall under ActionEvent, ItemEvent, or TextEvent.
+  - ItemEvent is for when an item is selected or deselected (ex. Checkbox)
+  - TextEvent is for when a Component's text has changed) (ex. TextField)
+  - ActionEvent is for when some Component related action has occurred (ex. Button and click)
+
+Creating an Event Listener:
+
+- In order to listen and handle an Event, a class that will be the event listener is needed. The event listener class must implement the proper EventListener subinterface.
+
+An example GUI event listener class might look like: 
+
+    class ButtonListener implements ActionListener {
+      public void actionPerformed(ActionEvent event){
+        System.out.println("Button Pressed!");
+      }
+    }
+
+- In this example, ActionListener is the EventListener subinterface (ActionListener inherits from EventListener). CountListener is the GUI event listener class. actionPerformed is the method that must be implemented (to fulfill the ActionListener interface).
+- actionPeformed takes in the ActionEvent event that represents the GUI interaction event and thus the code in actionPerformed should perform the functionality expected when the event occurs.
+
+Most Common Java GUI Event Listener SubInterfaces:
+
+- ActionListener --> Listens for ActionEvent --> needs implementation of actionPerformed method
+- ItemListener --> Listens for ItemEvent --> needs implementation of itemStateChanged method
+- TextListener --> Listens for TextEvent --> needs implementation of textValueChanged method
+
+Configuring/Adding the Event Listener:
+
+Say we have a button:
+
+    JButton pressButton = new JButton("Press Me");
+
+And we have the above ButtonListener class available and visible scope-wise. We aim to have an instance of ButtonListener listen for ActionEvents that are created whenever our pressButton is pressed. We set up the Event listening with the following:
+
+    pressButton.addActionListener(new ButtonListener());
+
+Now, whenever the pressButton is pressed by a user in the GUI, the actionPerformed method for that passed in instance of a ButtonListener will be executed ("Button Pressed!" would be printed).
+
+- A similar approach is used for ItemEvents and TextEvents but different addListener methods are utilized and are called on objects of different classes than button related classes in this case.
 
 ------
 
@@ -256,6 +300,8 @@ Listeners:
 ###Demo:
 
 For this GUI Demo, we'll be using Java Swing and making a quick GUI for Counting.
+
+We'll utilize JFrames, JPanels, JLabels, JButtons, ActionEvents and ActionListeners, LayoutManagers, and color styling, sizing, and positioning.
 
 ####Initialize:
 
