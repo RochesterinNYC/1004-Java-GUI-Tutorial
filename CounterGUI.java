@@ -9,7 +9,7 @@ import javax.swing.JFrame;
 
 public class CounterGUI {
   public static void main(String[] args){
-    JFrame counterFrame = new JFrame("W1004 GUI Demo: Counter");
+    JFrame counterFrame = new JFrame("Counter GUI");
     counterFrame.getContentPane().add(new CounterPanel());
     counterFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     counterFrame.pack();
