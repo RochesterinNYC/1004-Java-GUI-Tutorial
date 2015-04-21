@@ -10,10 +10,11 @@ This is a tutorial on Java GUIs. Written by James Wen.
 ###Table of Contents
 
 - [Terms and Definitions](#terms)
-- [Common Components](#common)
+- [AWT vs. Swing](#swingawt)
+- [Common Java GUI Components](#common)
 - [Inheritance](#inheritance)
 - [Global Operations](#global)
-- [Events](#events)
+- [Event Listening and Processing](#events)
 - [Other Notes](#other)
 - [More Resources/Documentation](#docs)
 
@@ -25,40 +26,38 @@ This is a tutorial on Java GUIs. Written by James Wen.
 
 ####GUI
 
-- 
+- Stands for Graphical User Interface
+- A visual interface that allows users to interact with a program or machine
+- Uses icons, buttons, windows, and other visual components
 
 ####AWT
 
 - Stands for Abstract Window Toolkit
 - Set of Java APIs, components, etc. used to create GUIs that are OS-specific
-- Uses the native Operating System GUI code/functionality and thus programs with Java AWT work and look different on different operating systems
-- OS-Specific Display: "the same Java program, when run on a Windows PC, would have the look and feel of a native Windows application and the look and feel of a native Mac application when run on a Mac" (http://www.techopedia.com/definition/3735/abstract-window-toolkit-awt)
 
 ####Swing
 
-- Java Swing is a 
-- Java Swing is built on top of AWT. (Swing uses AWT API and AWT components).
-- Java Swing and JVM?
-- Portable look and functionality across different operating systems
-- Usually has the look of a Java application no matter which operating system run on
-- Java Swing GUI components have a J as the first letter of the class. (Ex. JButton, JLabel)
-- 
+- Set of Java APIs, components, etc. used to create GUIs that are OS-portable
+- Java Swing is built on top of AWT (Many Swing components uses AWT API and AWT components)
 
 ####Heavyweight
 
-- 
+- Categorization of a Java GUI Component as having considerable reliance and association with the native screen resource (some operating system resource relating to the actual screen)
+- Ex. a Frame that 
 
 ####Lightweight
 
-- 
+- Categorization of a Java GUI Component as having considerable reliance on the screen resource of an ancestor in the container hierarchy
+- No native screen resource
+- Ex. a JLabel that is in a JPanel that is in a JFrame relies on the screen resource of the JFrame (that inherits from Frame).
 
 ####Event
 
 - Some interaction between the user and some aspect, component, or part of a Java GUI.
 
-####Listeners
+####Event Listener
 
-- 
+- A listener that is intended to track when a specific event occurs and execute some functionality/code when the event occurs
 
 ####Layouts
 
@@ -68,9 +67,36 @@ This is a tutorial on Java GUIs. Written by James Wen.
 
 ------
 
+<a name="awtswing"></a>
+
+###AWT vs. Swing:
+
+AWT:
+
+- Uses the native Operating System GUI code/functionality and thus programs with Java AWT work and look different on different operating systems
+- OS-Specific Display: "the same Java program, when run on a Windows PC, would have the look and feel of a native Windows application and the look and feel of a native Mac application when run on a Mac" (http://www.techopedia.com/definition/3735/abstract-window-toolkit-awt)
+- Heavyweight Components
+
+Swing:
+
+- Portable look and functionality across different operating systems
+- Java Swing and JVM?
+- Lightweight Components
+- Usually has the look of a Java application no matter which operating system run on
+- Java Swing GUI components have a J as the first letter of the class. (Ex. JButton, JLabel)
+
+Verdict:
+
+Depends on the type and purpose of the Java application you intend to build. However, for W1004, Java Swing will be used.
+
+------
+
 <a name="common"></a>
 
-###Common Components:
+###Common Java GUI Components:
+
+Component (AWT/Swing):
+
 
 Container (AWT/Swing):
 
@@ -188,12 +214,11 @@ setLayout(LayoutManager mgr):
 - Sets the layout manager for the Container.
 - Also has accessor getLayout that returns a LayoutManager object.
 
-
 ------
 
 <a name="events"></a>
 
-###Events:
+###Event Listening and Processing:
 
 - All GUI Events have a source (an Object that caused the event) because all Java Events inherit either directly or indirectly from java.util.EventObject which has a getSource method that returns the Source as an Object.
 
@@ -212,15 +237,8 @@ Listeners:
 - Stigma
 - Java Swing is not thread safe. (https://docs.oracle.com/javase/8/docs/api/javax/swing/package-summary.html#threading)
 
-- Menu Guide: https://docs.oracle.com/javase/tutorial/uiswing/components/menu.html
-
-- Oracle Documentation/Guide to Swing: https://docs.oracle.com/javase/tutorial/uiswing/components/index.html
 
 - Note that x/y coordinates/axes are as following: x = - --> + from left to right, y = - --> + from up to down (reversed from mathematical y axis)
-
-https://docs.oracle.com/javase/8/docs/api/javax/swing/package-summary.html
-
-https://docs.oracle.com/javase/8/docs/api/java/awt/package-summary.html
 
 ------
 
@@ -228,6 +246,16 @@ https://docs.oracle.com/javase/8/docs/api/java/awt/package-summary.html
 
 ###More Resources/Documentation:
 
+- Menu Guide: https://docs.oracle.com/javase/tutorial/uiswing/components/menu.html
+
+- Oracle Documentation/Guide to Swing: https://docs.oracle.com/javase/tutorial/uiswing/components/index.html
+
 - http://en.wikipedia.org/wiki/List_of_widget_toolkits#Based_on_Java
 
 - Weaknesses and Strengths: http://edn.embarcadero.com/article/26970
+
+- Heavyweight vs. Lightweight: http://www.oracle.com/technetwork/articles/java/mixing-components-433992.html
+
+- https://docs.oracle.com/javase/8/docs/api/javax/swing/package-summary.html
+
+- https://docs.oracle.com/javase/8/docs/api/java/awt/package-summary.html
