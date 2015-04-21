@@ -259,9 +259,8 @@ CounterGUI.java:
       }
     }
 
-Compiling and running this at this point should result in a small window displayed that you can resize.
-There is no content yet as we have not added any Components to our counterFrame JFrame.
-
+- Compiling and running this at this point should result in a small window displayed that you can resize.
+- There is no content yet as we have not added any Components to our counterFrame JFrame.
 - setDefaultCloseOperation is used to indicate the behavior when you click to exit out the JFrame.
 - pack is used to size the frame so that "all its contents are at or above their preferred sizes".
 - setVisible(true) is required to actually have the JFrame show up as visible to the user.
@@ -281,17 +280,16 @@ CounterPanel.java:
       }
     }
 
-We create a CounterPanel class that inherits from JPanel.
+- We create a CounterPanel class that inherits from JPanel.
 
 CounterGUI.java:
 
-    counterFrame.getContentPane().add(new CounterPanel());
-
 Add the following line after counterFrame is instantiated and assigned.
 
-We create and add a CounterPanel to our counterFrame.
+    counterFrame.getContentPane().add(new CounterPanel());
 
-Compiling and running this at this point should result in the same display as before. This is because our CounterPanel has no content and thus no size.
+- We create and add a CounterPanel to our counterFrame.
+- Compiling and running this at this point should result in the same display as before. This is because our CounterPanel has no content and no size.
 
 ####Set and Use Layout:
 
@@ -307,11 +305,11 @@ CounterPanel.java:
       }
     }
 
-We set an instance of BorderLayout as the LayoutManager for our CounterPanel. We also create a mainPanel JPanel that will house the components we will later implement/create. We then nest mainPanel inside our CounterPanel in the center quadrant for the BorderLayout. (Reference: https://docs.oracle.com/javase/tutorial/uiswing/layout/border.html)
-
+- We set an instance of BorderLayout as the LayoutManager for our CounterPanel. We also create a mainPanel JPanel that will house the components we will later implement/create. We then nest mainPanel inside our CounterPanel in the center quadrant for the BorderLayout. (Reference: https://docs.oracle.com/javase/tutorial/uiswing/layout/border.html)
 - setLayout takes as an argument an instance of a LayoutManager.
 - The reason why mainPanel is necessary is for formatting and positioning Components within the center sector of the Layout. We want to apply styling/formatting and positoning for these Containers in context of the center sector and not the entire panel (which contains other sectors).
 - The add method used is an overloaded version that takes in the Component and constraints (BorderLayout.CENTER in this case).
+- Compiling and running this at this point should result in the same display as before. This is because although our CounterPanel now has content (mainPanel), mainPanel has no content and no size.
 
 ####Set Panel Size:
 
@@ -322,11 +320,13 @@ CounterPanel.java:
     public CounterPanel(){
       setLayout(new BorderLayout());
       JPanel mainPanel = new JPanel();
-      mainPanel.setPreferredSize(new Dimension (200,80));
+      mainPanel.setPreferredSize(new Dimension(200,80));
       add(mainPanel, BorderLayout.CENTER);
     }
     
-We now set the preferred size of our MainPanel to 200 pixels by 80 pixels. Compiling and running this at this point should result in a 200px by 80px window appearing without having to resize. This is because although our CounterPanel has no set size and mainPanel has no content, mainPanel has a preferred size that counterFrame.pack() (in CounterGUI.java) seeks to maintain.
+- We now set the preferred size of our MainPanel to 200 pixels by 80 pixels.
+- The setPreferredSize method takes in a Dimension object. The Dimenson constructor takes in as parameters an int width in pixels and an int height in pixels.
+- Compiling and running this at this point should result in a 200px by 80px window appearing without having to resize. This is because although our CounterPanel has no set size and mainPanel has no content, mainPanel has a preferred size that counterFrame.pack() (in CounterGUI.java) seeks to maintain.
 
 ####Set Background Color:
 
@@ -342,7 +342,8 @@ CounterPanel.java:
       add(mainPanel, BorderLayout.CENTER);
     }
 
-We now set the background color of our mainPanel to the color that corresponds with the RGB value (R = 16, G = 101, B = 46) (Columbia Blue). Compiling and running this at this point should result in the previous display now with the background color changed.
+- We now set the background color of our mainPanel to the color that corresponds with the RGB value (R = 16, G = 101, B = 46) (Columbia Blue).
+- Compiling and running this at this point should result in the previous display now with the background color of mainPanel changed appropriately.
 
 ####Create JLabel:
 
@@ -369,10 +370,11 @@ CounterPanel.java:
       }
     }
 
-We now instantiate a JLabel countLabel and int count as private instance variables of our CounterLabel class/object. When we construct a CounterPanel object, we also set count to 0, create the JLabel, size and position it appropriately, and then add it to the mainPanel.
-
+- We now instantiate a JLabel countLabel and int count as private instance variables of our CounterLabel class/object. 
+- When we construct a CounterPanel object, we also set count to 0, create the JLabel, size and position it appropriately, and then add it to the mainPanel.
 - Variables only need to be instance variables of the Panel class if there will be some other class or method that needs access to them. (We'll be adding an ActionListener interfaced class later that'll need access to count and countLabel.)
 - Ex. A simple static JLabel that won't be changed can be instantiated within the constructor or possibly even just with the new constructor without assignment to a variable.
+- Compiling and running this at this point should result in the previous display now with the GUI displaying the text "Count: 0".
 - The String argument passed into the JLabel constructor will be what the JLabel text displays.
 - The setBounds method sets the width and height of countLabel to 60px and 50px and positions its top-left corner at 70px, 20px (x, y). Notice that the JLabel is centered horizontally. This is because our mainPanel is 200px x 80px, so if the width of the countLabel is 80px and it's positioned 60px from the left, then the right margin is also 60px. (80px on left + 60px width JLabel + 60px on right == 200px width for mainPanel).
 - add(countLabel) adds the countLabel JLabel (a Component) to the mainPanel. The add method call is inherited from the Container class.
@@ -398,7 +400,8 @@ CounterPanel.java:
       add(new JLabel("W1004: Java GUI Demo"), BorderLayout.PAGE_START);
     }
     
-We create a new JLabel and directly add it to the PAGE_START sector of the BorderLayout of CounterPanel.
+- We create a new JLabel and directly add it to the PAGE_START sector of the BorderLayout of CounterPanel.
+- Compiling and running this at this point should result in the previous display now with the top layout sector should have the text "W1004: Java GUI Demo" and should __NOT__ have the same background color as the mainPanel.
 
 ####Create JButton:
 
@@ -431,9 +434,10 @@ CounterPanel.java:
       }
     }
 
-We now instantiate a JButton countButton as a private instance variable of our CounterLabel class/object. When we construct a CounterPanel object, we now also create the JButton, size and position it appropriately, and then add it to the CounterPanel.
-
+- We now instantiate a JButton countButton as a private instance variable of our CounterLabel class/object. 
+- When we construct a CounterPanel object, we now also create the JButton, size and position it appropriately, and then add it to the CounterPanel.
 - The String argument passed into the JButton constructor will be what the text for the JButton displays.
+- Compiling and running this at this point should result in the previous display now with a button (that says "Increase Count") below the "Count: 0" text.
 - The countButton is centered horizontally using the same strategy as denoted in the step before this one.
 - Nothing will happen when clicking the Button in the GUI currently as there are no action listeners set up.
 
@@ -478,10 +482,10 @@ CounterPanel.java:
       }
     }
 
-We now have a nested private class called CountListener that is the listener for the action of our countButton being pressed. On countButton being pressed, we increase the count by 1.
-
+- We now have a nested private class called CountListener that is the listener for the action of our countButton being pressed. On countButton being pressed, we increase the count by 1.
 - The actionPerformed method is executed every time the countButton is pressed.
 - Notice that we now import java.awt.event for event/action listening.
+- Compiling and running this at this point should result in the previous display.
 - Nothing will seem to happen when clicking the Button in the GUI currently as, even though the instance variable count is updated with each button press, countLabel is not so the display does not change.
 
 ####Update JLabel on JButton Press:
@@ -497,8 +501,8 @@ CounterPanel.java:
       }
     }
 
-We now also update the countLabel with the action of our countButton being pressed. Hence, the GUI and visual display is now accurate.
-
+- We now also update the countLabel with the action of our countButton being pressed. Hence, the GUI and visual display is now accurate.
+- Compiling and running this at this point should result in the previous display but pressing the button should increment number displayed after "Count: ".
 - The setText method is used to set the text of the JLabel the method is invoked on to the String that's passed in as an argument.
 
 ####Wrapup:
