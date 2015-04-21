@@ -200,19 +200,19 @@ Java Swing is in the javax.swing package.
 
 AWT:
 
-- All GUI components will inherit from java.awt.Component which inherits from java.lang.Object.
+- All GUI components will inherit from `java.awt.Component` which inherits from java.lang.Object.
 
 For a quick overview on the inheritance hierarchy of the most popular AWT GUI components: http://cs.saddleback.edu/rwatkins/CS4A/Section7/Hierarchy.html
 
-- All AWT Events will inherit either directly or indirectly from java.awt.AWTEvent, which inherits from java.util.EventObject (which inherits from java.lang.Object).
+- All AWT Events will inherit either directly or indirectly from `java.awt.AWTEvent`, which inherits from `java.util.EventObject` (which inherits from `java.lang.Object`).
 
 Java Swing:
 
-- All GUI components will inherit from javax.swing.JComponent which inherits from java.awt.Container which inherits from java.awt.Component.
+- All GUI components will inherit from `javax.swing.JComponent` which inherits from `java.awt.Container` which inherits from `java.awt.Component`.
 
 For a quick overview on the inheritance hierarchy of the most popular Java Swing GUI components: http://www.comp.nus.edu.sg/~cs3283/ftp/Java/swingConnect/archive/what_is_arch/tool_set/tool_set.html
 
-- Java Swing Events will either inherit from java.util.EventObject directly or indirectly from java.awt.AWTEvent and AWT subclasses of java.awt.AWTEvent (like java.awt.event.ComponentEvent)
+- Java Swing Events will either inherit from java.util.EventObject directly or indirectly from `java.awt.AWTEvent` and AWT subclasses of `java.awt.AWTEvent` (like `java.awt.event.ComponentEvent`)
 
 ------
 
@@ -222,7 +222,7 @@ For a quick overview on the inheritance hierarchy of the most popular Java Swing
 
 All subclasses that have these classes as superclasses can utilize the following functionalities.
 
-####Component (java.awt.Component):
+####Component (`java.awt.Component`):
 
 setSize(int width, int height):
 - Sets the width and height of the Component.
@@ -242,7 +242,7 @@ setBounds(int x, int y, int width, int height):
 - Moves and resizes the Component.
 - If considering the Component as a rectangle, the top-left corner is located at the x and y specified and the width and height are as specified by the appopriately named parameters.
 
-####Container (java.awt.Container):
+####Container (`java.awt.Container`):
 
 add(Component comp):
 - Adds the specified Component to the Container.
@@ -274,7 +274,9 @@ For Java GUIs, LayoutManagers allow you to arrange the GUI components of a Conta
 - Overlapping of Components is not allowed with default behavior.
 - To add a component to a specific area of a Container's layout (ex. PAGE_START area of a BorderLayout), the add(Component comp, Object constraints) method of the Container class is usually used. 
 - Example Usage: 
+
         add(new JLabel("W1004: Java GUI Demo"), BorderLayout.PAGE_START);
+
 - Great Reference: https://docs.oracle.com/javase/tutorial/uiswing/layout/visual.html
 ------
 
@@ -284,11 +286,11 @@ For Java GUIs, LayoutManagers allow you to arrange the GUI components of a Conta
 
 Inheritance Hierarchy:
 
-java.awt.AWTEvent inherits from java.util.EventObject inherits from java.lang.Object
+`java.awt.AWTEvent` inherits from `java.util.EventObject` inherits from `java.lang.Object`
 
-- java.util.EventObject represents an Event. However, the Event concept is not restricted to just GUIs and visual interaction. (Ex. javax.print.event.PrintEvent inherits from java.util.EventObject and is related to the Java Print API).
-- java.awt.AWTEvent is an abstract class that represents all Events that have anything to do with AWT and Java GUIs.
-- Most of the Events that you would be dealing with in writing AWT or Swing Component GUIs would directly inherit from java.awt.AWTEvent (Ex. ActionEvent, ItemEvent, TextEvent, etc.).
+- `java.util.EventObject` represents an Event. However, the Event concept is not restricted to just GUIs and visual interaction. (Ex. `javax.print.event.PrintEvent` inherits from `java.util.EventObject` and is related to the Java Print API).
+- `java.awt.AWTEvent` is an abstract class that represents all Events that have anything to do with AWT and Java GUIs.
+- Most of the Events that you would be dealing with in writing AWT or Swing Component GUIs would directly inherit from `java.awt.AWTEvent` (Ex. ActionEvent, ItemEvent, TextEvent, etc.).
 
 Most Common Java GUI Events:
 
@@ -619,7 +621,7 @@ CounterPanel.java:
 - Compiling and running this at this point should result in the previous display.
 - Nothing will seem to happen when clicking the Button in the GUI currently as, even though the instance variable count is updated with each button press, countLabel is not so the display does not change.
 - The actionPerformed method is executed every time the countButton is pressed.
-- Notice that we now import java.awt.event for event/action listening.
+- Notice that we now import `java.awt.event.*` for event/action listening.
 
 ####Update JLabel on JButton Press:
 
