@@ -97,22 +97,22 @@ Depends on the type and purpose of the Java application you intend to build. How
 
 ###Common Java GUI Components:
 
-Component (AWT/Swing):
+####Component (AWT/Swing):
 
 - An object that has a graphical/visual representation that can be displayed to a user and can be interacted with.
 - Ex. Buttons, Checkboxes, Textfields
 - "Abstract superclass of the non-menu-related AWT components"
 
-Container (AWT/Swing):
+####Container (AWT/Swing):
 
 - A generic AWT object that is essentially a Component that can hold other AWT Components in it.
 
-Window (AWT)/JWindow (Swing):
+####Window (AWT)/JWindow (Swing):
 
 - A Container that can be displayed on the user's desktop.
 - If something is actually to be displayed to the user, that something (ex. Frame or JFrame) must inherit from Window/JWindow.
 
-Frame (AWT)/JFrame (Swing):
+####Frame (AWT)/JFrame (Swing):
 
 - A top-level, framed window that contains a title and border. Can be closed or minified or etc.
 - Frames can be nested within each other. (Reference: http://docs.oracle.com/javase/tutorial/uiswing/components/internalframe.html)
@@ -121,18 +121,18 @@ Frame (AWT)/JFrame (Swing):
   <img src="http://da2i.univ-lille1.fr/doc/tutorial-java/figures/uiswing/components/FrameDemoMetal.png" alt="Frame"/>
 </p>
 
-Panel (AWT)/JPanel (Swing):
+####Panel (AWT)/JPanel (Swing):
 
 - Container used for organizing and grouping GUI components within frames.
 - Used to organize GUI Components (ex. buttons, labels, textfields, etc.).
 - Panels can be nested within each other.
 
-Point (AWT/Swing):
+####Point (AWT/Swing):
 
 - A point with an x/y location.
 - Bear in mind that the y axis is flipped in context of Java GUIs. (http://mathbits.com/MathBits/Java/Graphics/GraphingMethods.htm)
 
-Label (AWT)/JLabel (Swing):
+####Label (AWT)/JLabel (Swing):
 
 - Text or image display that cannot be edited by the user.
 
@@ -140,7 +140,7 @@ Label (AWT)/JLabel (Swing):
   <img src="http://da2i.univ-lille1.fr/doc/tutorial-java/figures/uiswing/components/LabelDemoMetal.png" alt="Label"/>
 </p>
 
-Button (AWT)/JButton (Swing):
+####Button (AWT)/JButton (Swing):
 
 - A button that the user can click.
 - Clicking a button will generate an ActionEvent that can be handled by an ActionListener to run some method or code.
@@ -150,7 +150,7 @@ Button (AWT)/JButton (Swing):
   <img src="http://da2i.univ-lille1.fr/doc/tutorial-java/figures/uiswing/components/ButtonDemoMetal.png" alt="Button"/>
 </p>
 
-TextField (AWT)/JTextField (Swing):
+####TextField (AWT)/JTextField (Swing):
 
 - Text/Field for text that can be edited by the user.
 - Changing text will generate a TextEvent that can be handled by an TextListener to run some method or code.
@@ -159,7 +159,7 @@ TextField (AWT)/JTextField (Swing):
   <img src="http://www.java2s.com/Code/JavaImages/TextFieldExample.PNG" alt="TextField"/>
 </p>
 
-TextArea (AWT)/JTextArea (Swing):
+####TextArea (AWT)/JTextArea (Swing):
 
 - Box that holds multiple lines of text. Can either be set to editable by user or uneditable.
 - Changing text will generate a TextEvent that can be handled by an TextListener to run some method or code.
@@ -168,7 +168,7 @@ TextArea (AWT)/JTextArea (Swing):
   <img src="http://www.leepoint.net/GUI/components/40textarea/TextAreaDemoAfter.gif" alt="TextArea"/>
 </p>
 
-JRadioButton (Swing):
+####JRadioButton (Swing):
 
 - An item that can either be selected or deselected.
 - Usually part of a group of more than one JRadioButton.
@@ -179,7 +179,7 @@ JRadioButton (Swing):
   <img src="http://da2i.univ-lille1.fr/doc/tutorial-java/figures/uiswing/components/RadioButtonDemoMetal.png" alt="JRadioButton"/>
 </p>
 
-CheckBox (AWT)/JCheckBox (Swing):
+####CheckBox (AWT)/JCheckBox (Swing):
 
 - A checkbox item that can either be selected or deselected.
 - Selecting or deselecting will generate an ItemEvent that can be handled by an ItemListener to run some method or code.
@@ -194,9 +194,9 @@ CheckBox (AWT)/JCheckBox (Swing):
 
 ###Inheritance:
 
-Java AWT is in the java.awt package.
+Java AWT is in the `java.awt` package.
 
-Java Swing is in the javax.swing package.
+Java Swing is in the `javax.swing` package.
 
 AWT:
 
@@ -284,7 +284,7 @@ For Java GUIs, LayoutManagers allow you to arrange the GUI components of a Conta
 
 ###Event Listening and Processing:
 
-Inheritance Hierarchy:
+####Inheritance Hierarchy:
 
 `java.awt.AWTEvent` inherits from `java.util.EventObject` inherits from `java.lang.Object`
 
@@ -292,14 +292,14 @@ Inheritance Hierarchy:
 - `java.awt.AWTEvent` is an abstract class that represents all Events that have anything to do with AWT and Java GUIs.
 - Most of the Events that you would be dealing with in writing AWT or Swing Component GUIs would directly inherit from `java.awt.AWTEvent` (Ex. ActionEvent, ItemEvent, TextEvent, etc.).
 
-Most Common Java GUI Events:
+####Most Common Java GUI Events:
 
 - Whenever a user clicks or interacts with a GUI Component, it'll usually fall under ActionEvent, ItemEvent, or TextEvent.
   - ItemEvent is for when an item is selected or deselected (ex. Checkbox)
   - TextEvent is for when a Component's text has changed) (ex. TextField)
   - ActionEvent is for when some Component related action has occurred (ex. Button and click)
 
-Creating an Event Listener:
+####Creating an Event Listener:
 
 - In order to listen and handle an Event, a class that will be the event listener is needed. The event listener class must implement the proper EventListener subinterface.
 
@@ -314,13 +314,13 @@ An example GUI event listener class might look like:
 - In this example, ActionListener is the EventListener subinterface (ActionListener inherits from EventListener). CountListener is the GUI event listener class. actionPerformed is the method that must be implemented (to fulfill the ActionListener interface).
 - actionPeformed takes in the ActionEvent event that represents the GUI interaction event and thus the code in actionPerformed should perform the functionality expected when the event occurs.
 
-Most Common Java GUI Event Listener SubInterfaces:
+####Most Common Java GUI Event Listener SubInterfaces:
 
 - ActionListener --> Listens for ActionEvent --> needs implementation of actionPerformed method
 - ItemListener --> Listens for ItemEvent --> needs implementation of itemStateChanged method
 - TextListener --> Listens for TextEvent --> needs implementation of textValueChanged method
 
-Configuring/Adding the Event Listener:
+####Configuring/Adding the Event Listener:
 
 Say we have a button:
 
@@ -655,13 +655,10 @@ CounterPanel.java:
 
 ###Other Notes:
 
-- Use themes/skins! Ex. http://geeknizer.com/best-java-swing-look-and-feel-themes-professional-casual-top-10/
+- Java GUI themes/skins are available. Ex. http://geeknizer.com/best-java-swing-look-and-feel-themes-professional-casual-top-10/
 - Examples of nice looking Java GUIs: SPSS Modeler, Palantir Client
-- Stigma
 - Java Swing is not thread safe. (https://docs.oracle.com/javase/8/docs/api/javax/swing/package-summary.html#threading)
-
-
-- Note that x/y coordinates/axes are as following: x = - --> + from left to right, y = - --> + from up to down (reversed from mathematical y axis)
+- Note that for Java GUIs and related code, x/y coordinates/axes are as following: x = - --> + from left to right, y = - --> + from up to down (reversed from mathematical y axis)
 
 ------
 
@@ -669,16 +666,24 @@ CounterPanel.java:
 
 ###More Resources/Documentation:
 
-- Menu Guide: https://docs.oracle.com/javase/tutorial/uiswing/components/menu.html
-
 - Oracle Documentation/Guide to Swing: https://docs.oracle.com/javase/tutorial/uiswing/components/index.html
 
-- http://en.wikipedia.org/wiki/List_of_widget_toolkits#Based_on_Java
+- Menu Implementation Guide: https://docs.oracle.com/javase/tutorial/uiswing/components/menu.html
 
-- Weaknesses and Strengths: http://edn.embarcadero.com/article/26970
+- Event Listener Guide: https://docs.oracle.com/javase/tutorial/uiswing/events/index.html
+
+- Oracle Swing Tutorials: http://docs.oracle.com/javase/tutorial/uiswing/index.html
+
+- Java GUI APIs: http://en.wikipedia.org/wiki/List_of_widget_toolkits#Based_on_Java
+
+- AWT vs. Swing - Weaknesses and Strengths: http://edn.embarcadero.com/article/26970
 
 - Heavyweight vs. Lightweight: http://www.oracle.com/technetwork/articles/java/mixing-components-433992.html
 
-- https://docs.oracle.com/javase/8/docs/api/javax/swing/package-summary.html
+- Swing Package: https://docs.oracle.com/javase/8/docs/api/javax/swing/package-summary.html
 
-- https://docs.oracle.com/javase/8/docs/api/java/awt/package-summary.html
+- AWT Package: https://docs.oracle.com/javase/8/docs/api/java/awt/package-summary.html
+
+- AWT Tutorial: http://www.javaworld.com/article/2077188/core-java/introduction-to-the-awt.html
+
+- Java GUI Tutorial: https://www.clear.rice.edu/comp310/JavaResources/GUI/
