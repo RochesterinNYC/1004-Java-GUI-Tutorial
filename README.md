@@ -14,6 +14,7 @@ This is a tutorial on Java GUIs. Written by James Wen.
 - [Common Java GUI Components](#common)
 - [Inheritance](#inheritance)
 - [Global Operations](#global)
+- [Layouts](#layouts)
 - [Event Listening and Processing](#events)
 - [Demo](#demo)
 - [Other Notes](#other)
@@ -63,7 +64,6 @@ This is a tutorial on Java GUIs. Written by James Wen.
 ####Layouts
 
 - The Java LayoutManagers that dictate how your GUI Components will be arranged in a Container or Container subclass.
-
 - https://docs.oracle.com/javase/tutorial/uiswing/layout/visual.html
 
 ------
@@ -224,6 +224,21 @@ setLayout(LayoutManager mgr):
 
 ------
 
+<a name="layouts"></a>
+
+###Layouts:
+
+For Java GUIs, LayoutManagers allow you to arrange the GUI components of a Container (or Container subclass) in a predefined and structured visual layout.
+
+- The default LayoutManager for a Container is BorderLayout.
+- The setLayout(LayoutManager mgr) method of the Container class is used to set the Container's LayoutManager.
+- Overlapping of Components is not allowed with default behavior.
+- To add a component to a specific area of a Container's layout (ex. PAGE_START area of a BorderLayout), the add(Component comp, Object constraints) method of the Container class is usually used. 
+- Example Usage: 
+        add(new JLabel("W1004: Java GUI Demo"), BorderLayout.PAGE_START);
+- Great Reference: https://docs.oracle.com/javase/tutorial/uiswing/layout/visual.html
+------
+
 <a name="events"></a>
 
 ###Event Listening and Processing:
@@ -307,7 +322,7 @@ CounterPanel.java:
 
 - We set an instance of BorderLayout as the LayoutManager for our CounterPanel. We also create a mainPanel JPanel that will house the components we will later implement/create. We then nest mainPanel inside our CounterPanel in the center quadrant for the BorderLayout. (Reference: https://docs.oracle.com/javase/tutorial/uiswing/layout/border.html)
 - setLayout takes as an argument an instance of a LayoutManager.
-- The reason why mainPanel is necessary is for formatting and positioning Components within the center sector of the Layout. We want to apply styling/formatting and positoning for these Containers in context of the center sector and not the entire panel (which contains other sectors).
+- The reason why mainPanel is necessary is for formatting and positioning Components within the center area of the Layout. We want to apply styling/formatting and positoning for these Containers in context of the center area and not the entire panel (which contains other areas).
 - The add method used is an overloaded version that takes in the Component and constraints (BorderLayout.CENTER in this case).
 - Compiling and running this at this point should result in the same display as before. This is because although our CounterPanel now has content (mainPanel), mainPanel has no content and no size.
 
@@ -400,8 +415,8 @@ CounterPanel.java:
       add(new JLabel("W1004: Java GUI Demo"), BorderLayout.PAGE_START);
     }
     
-- We create a new JLabel and directly add it to the PAGE_START sector of the BorderLayout of CounterPanel.
-- Compiling and running this at this point should result in the previous display now with the top layout sector should have the text "W1004: Java GUI Demo" and should __NOT__ have the same background color as the mainPanel.
+- We create a new JLabel and directly add it to the PAGE_START area of the BorderLayout of CounterPanel.
+- Compiling and running this at this point should result in the previous display now with the top layout area should have the text "W1004: Java GUI Demo" and should __NOT__ have the same background color as the mainPanel.
 
 ####Create JButton:
 
