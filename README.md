@@ -55,7 +55,8 @@ This is a tutorial on Java GUIs. Written by James Wen.
 
 ####Event
 
-- Some interaction between the user and some aspect, component, or part of a Java GUI.
+- Some interaction that a Java class is listening for
+- In GUI context, is some interaction between the user and some component or part of a Java GUI
 
 ####Event Listener
 
@@ -116,6 +117,10 @@ Frame (AWT)/JFrame (Swing):
 - A top-level, framed window that contains a title and border. Can be closed or minified or etc.
 - Frames can be nested within each other. (Reference: http://docs.oracle.com/javase/tutorial/uiswing/components/internalframe.html)
 
+<p align="center">
+  <img src="http://da2i.univ-lille1.fr/doc/tutorial-java/figures/uiswing/components/FrameDemoMetal.png" alt="Frame"/>
+</p>
+
 Panel (AWT)/JPanel (Swing):
 
 - Container used for organizing and grouping GUI components within frames.
@@ -129,30 +134,59 @@ Point (AWT/Swing):
 
 Label (AWT)/JLabel (Swing):
 
-- Text that cannot be edited by the user.
+- Text or image display that cannot be edited by the user.
+
+<p align="center">
+  <img src="http://da2i.univ-lille1.fr/doc/tutorial-java/figures/uiswing/components/LabelDemoMetal.png" alt="Label"/>
+</p>
 
 Button (AWT)/JButton (Swing):
 
 - A button that the user can click.
 - Clicking a button will generate an ActionEvent that can be handled by an ActionListener to run some method or code.
 
+
+<p align="center">
+  <img src="http://da2i.univ-lille1.fr/doc/tutorial-java/figures/uiswing/components/ButtonDemoMetal.png" alt="Button"/>
+</p>
+
 TextField (AWT)/JTextField (Swing):
 
 - Text/Field for text that can be edited by the user.
+- Changing text will generate a TextEvent that can be handled by an TextListener to run some method or code.
+
+<p align="center">
+  <img src="http://www.java2s.com/Code/JavaImages/TextFieldExample.PNG" alt="TextField"/>
+</p>
 
 TextArea (AWT)/JTextArea (Swing):
 
 - Box that holds multiple lines of text. Can either be set to editable by user or uneditable.
+- Changing text will generate a TextEvent that can be handled by an TextListener to run some method or code.
+
+<p align="center">
+  <img src="http://www.leepoint.net/GUI/components/40textarea/TextAreaDemoAfter.gif" alt="TextArea"/>
+</p>
 
 JRadioButton (Swing):
 
 - An item that can either be selected or deselected.
 - Usually part of a group of more than one JRadioButton.
 - ButtonGroup used to group JRadioButtons together so that only one radio button in that group can be selected at a time.
+- Selecting or deselecting will generate an ItemEvent that can be handled by an ItemListener to run some method or code.
+
+<p align="center">
+  <img src="http://da2i.univ-lille1.fr/doc/tutorial-java/figures/uiswing/components/RadioButtonDemoMetal.png" alt="JRadioButton"/>
+</p>
 
 CheckBox (AWT)/JCheckBox (Swing):
 
 - A checkbox item that can either be selected or deselected.
+- Selecting or deselecting will generate an ItemEvent that can be handled by an ItemListener to run some method or code.
+
+<p align="center">
+  <img src="http://zetcode.com/img/gui/javaswing/jcheckbox.png" alt="JCheckbox"/>
+</p>
 
 ------
 
@@ -178,7 +212,7 @@ Java Swing:
 
 For a quick overview on the inheritance hierarchy of the most popular Java Swing GUI components: http://www.comp.nus.edu.sg/~cs3283/ftp/Java/swingConnect/archive/what_is_arch/tool_set/tool_set.html
 
-Java Swing Events will either inherit from java.util.EventObject directly or indirectly from java.awt.AWTEvent and AWT subclasses of java.awt.AWTEvent (like java.awt.event.ComponentEvent)
+- Java Swing Events will either inherit from java.util.EventObject directly or indirectly from java.awt.AWTEvent and AWT subclasses of java.awt.AWTEvent (like java.awt.event.ComponentEvent)
 
 ------
 
@@ -231,6 +265,11 @@ setLayout(LayoutManager mgr):
 For Java GUIs, LayoutManagers allow you to arrange the GUI components of a Container (or Container subclass) in a predefined and structured visual layout.
 
 - The default LayoutManager for a Container is BorderLayout.
+
+<p align="center">
+  <img src="https://docs.oracle.com/javase/tutorial/figures/uiswing/layout/BorderLayoutDemo.png" alt="BorderLayout"/>
+</p>
+
 - The setLayout(LayoutManager mgr) method of the Container class is used to set the Container's LayoutManager.
 - Overlapping of Components is not allowed with default behavior.
 - To add a component to a specific area of a Container's layout (ex. PAGE_START area of a BorderLayout), the add(Component comp, Object constraints) method of the Container class is usually used. 
