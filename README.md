@@ -321,6 +321,9 @@ CounterGUI.java:
     }
 
 - Compiling and running this at this point should result in a small window displayed that you can resize.
+
+![counterGUI-1](/images/counterGUI-1.png?raw=true "counterGUI-1")
+
 - There is no content yet as we have not added any Components to our counterFrame JFrame.
 - setDefaultCloseOperation is used to indicate the behavior when you click to exit out the JFrame.
 - pack is used to size the frame so that "all its contents are at or above their preferred sizes".
