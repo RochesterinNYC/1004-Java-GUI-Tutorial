@@ -165,7 +165,7 @@ Depends on the type and purpose of the Java application you intend to build. How
 - Changing text will generate a TextEvent that can be handled by an TextListener to run some method or code.
 
 <p align="center">
-  <img src="http://www.leepoint.net/GUI/components/40textarea/TextAreaDemoAfter.gif" alt="TextArea"/>
+  <img src="https://docs.oracle.com/javase/tutorial/figures/uiswing/components/TextAreaDemo.png" alt="TextArea"/>
 </p>
 
 ####JRadioButton (Swing):
